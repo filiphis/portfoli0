@@ -1,5 +1,4 @@
 "use client";
-import { Big_Shoulders_Display } from "next/font/google";
 import * as S from "./styles";
 import Image from "next/image";
 
@@ -7,12 +6,16 @@ import githubIcon from "/public/github.png";
 import linkedinIcon from "/public/linkedin.png";
 import sunIcon from "/public/dark.png";
 
-const bigShouldersFont = Big_Shoulders_Display({ subsets: ["latin"] });
+import { Big_Shoulders_Display } from "next/font/google";
+const bigShouldersFont = Big_Shoulders_Display({
+  subsets: ["latin"],
+  variable: "--font-big-shoulders",
+});
 
 export default function Header() {
   return (
     <S.Wrapper>
-      <S.Logo className={bigShouldersFont.className}>DEV Luiz </S.Logo>
+      <S.Logo>DEV Luiz </S.Logo>
       <S.Socials>
         <Image
           src={githubIcon}

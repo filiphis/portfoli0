@@ -1,12 +1,23 @@
 "use client";
-// import './globals.css'
-import { Inter } from "next/font/google";
+// import "./styles/global";
 import GlobalStyles from "./styles/global";
 import Header from "./components/Header";
 import { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme } from "./styles/themes";
 
-const inter = Inter({ subsets: ["latin"] });
+import { Poppins, Big_Shoulders_Display } from "next/font/google";
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  display: "swap",
+  weight: "400",
+  variable: "--font-poppins",
+});
+
+const bigShouldersFont = Big_Shoulders_Display({
+  subsets: ["latin"],
+  variable: "--font-big-shoulders",
+});
 
 export default function RootLayout({
   children,
@@ -15,13 +26,18 @@ export default function RootLayout({
 }) {
   return (
     <>
-      <html lang="pt-br">
+      <html
+        lang="pt-br"
+        className={`${poppins.variable} ${bigShouldersFont.variable}`}
+      >
         <ThemeProvider theme={lightTheme}>
-          <body className={inter.className}>
-            <GlobalStyles />
-            <Header />
-            {/* {children} */}
-            {/* <h1>footer</h1> */}
+          <body>
+            <div className="container">
+              <GlobalStyles />
+              <Header />
+              {children}
+              {/* <h1>footer</h1> */}
+            </div>
           </body>
         </ThemeProvider>
       </html>

@@ -4,6 +4,13 @@ const nextConfig = {
   compiler: {
     styledComponents: true,
   },
+  images: {
+    remotePatterns: [
+      {
+        hostname: "media.licdn.com",
+      },
+    ],
+  },
 };
 
 module.exports = nextConfig;

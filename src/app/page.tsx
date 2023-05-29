@@ -1,6 +1,8 @@
 // import { GlobalStyles } from "./styles/global.styles.ts";
 // import styles from "./page.module.css";
 
+import Banner from "./components/Banner";
+
 export const metadata = {
   title: "Portfolio Luiz Silveira",
   description:
@@ -10,7 +12,7 @@ export const metadata = {
 export default function Home() {
   return (
     <main>
-      <h1>Home</h1>
+      <Banner />
     </main>
   );
 }

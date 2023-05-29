@@ -11,8 +11,10 @@
 
 export const lightTheme = {
   textColor: "#666666",
+  titleColor: "#42446E",
 };
 
 export const darkTheme = {
   textColor: "red",
+  titleColor: "",
 };

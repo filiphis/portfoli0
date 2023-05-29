@@ -11,14 +11,14 @@ export const Wrapper = styled.header`
 
 export const Socials = styled.div`
   display: flex;
-  gap: 1rem;
+  gap: 2rem;
 `;
 
 export const Logo = styled.a`
   ${({ theme }) => css`
     color: ${theme.textColor};
   `}
-  /* color: #f6f6f6; */
+  font-family: var(--font-big-shoulders);
   font-size: 2.8rem;
   letter-spacing: -0.2rem;
   font-weight: bold;
