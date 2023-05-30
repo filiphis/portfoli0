@@ -6,6 +6,7 @@ export const Wrapper = styled.span`
     display: inline-block;
     color: ${theme.subTitleColor};
     font-size: 2rem;
+    line-height: 1.4;
     text-align: left;
   `}
 `;

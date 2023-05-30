@@ -4,6 +4,7 @@ import GlobalStyles from "./styles/global";
 import Header from "./components/Header";
 import { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme } from "./styles/themes";
+import StyledComponentsRegistry from "./lib/registry";
 
 import { Poppins, Big_Shoulders_Display } from "next/font/google";
 
@@ -35,7 +36,7 @@ export default function RootLayout({
             <div className="container">
               <GlobalStyles />
               <Header />
-              {children}
+              <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
               {/* <h1>footer</h1> */}
             </div>
           </body>

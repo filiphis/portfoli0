@@ -1,3 +1,5 @@
+const { hostname } = require("os");
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
@@ -5,11 +7,7 @@ const nextConfig = {
     styledComponents: true,
   },
   images: {
-    remotePatterns: [
-      {
-        hostname: "media.licdn.com",
-      },
-    ],
+    remotePatterns: [{ hostname: "source.unsplash.com" }],
   },
 };
 

@@ -2,7 +2,7 @@
 import styled, { css } from "styled-components";
 
 export const Wrapper = styled.section`
-  margin: 1.6rem 0;
+  margin: 2rem 0;
 `;
 
 export const Title = styled.h2`

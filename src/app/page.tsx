@@ -3,6 +3,7 @@
 
 import Banner from "./components/Banner";
 import Experience from "./components/Experience";
+import Projects from "./components/Projects";
 
 export const metadata = {
   title: "Portfolio Luiz Silveira",
@@ -15,6 +16,7 @@ export default function Home() {
     <main>
       <Banner />
       <Experience />
+      <Projects />
     </main>
   );
 }

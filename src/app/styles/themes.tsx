@@ -13,6 +13,8 @@ export const lightTheme = {
   textColor: "#666666",
   subTitleColor: "#666666",
   titleColor: "#42446E",
+  bgColor: "#F5F5F5",
+  cardBackgroundColor: "#FFFFFF",
 };
 
 export const darkTheme = {

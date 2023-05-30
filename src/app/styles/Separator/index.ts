@@ -2,5 +2,5 @@
 import styled from "styled-components";
 
 export const Separator = styled.div`
-  margin-top: 1.6rem;
+  margin-top: 2rem;
 `;
