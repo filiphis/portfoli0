@@ -1,10 +1,11 @@
 "use client";
 import styled, { css } from "styled-components";
+import { TitleProps } from ".";
 
-export const Wrapper = styled.h1`
-  ${({ theme }) => css`
+export const Wrapper = styled.h1<TitleProps>`
+  ${({ theme, align }) => css`
     color: ${theme.titleColor};
-    font-size: 2.4rem;
-    text-align: center;
+    font-size: 3rem;
+    text-align: ${align};
   `}
 `;

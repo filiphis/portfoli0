@@ -5,13 +5,12 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: min(500px, 100%);
 `;
 
 export const ImagemContainer = styled.div`
   position: relative;
   width: 100%;
-  width: min(450px, 100%);
-  margin: 2rem 0;
-
+  margin-top: 1.6rem;
   aspect-ratio: 4/4;
 `;

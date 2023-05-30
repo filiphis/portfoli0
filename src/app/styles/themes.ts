@@ -11,6 +11,7 @@
 
 export const lightTheme = {
   textColor: "#666666",
+  subTitleColor: "#666666",
   titleColor: "#42446E",
 };
 

@@ -6,7 +6,8 @@ export const Wrapper = styled.header`
   align-items: center;
   justify-content: space-between;
   font-size: 2rem;
-  width: 100%;
+  /* width: 100%; */
+  width: min(500px, 100%);
 `;
 
 export const Socials = styled.div`

@@ -29,7 +29,7 @@ body{
 }
 
 body {
-  padding: 4rem 2.4rem;
+  padding: 1.6rem;
   display: flex;
   justify-content: center;
 }

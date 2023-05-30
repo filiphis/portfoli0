@@ -2,6 +2,7 @@
 // import styles from "./page.module.css";
 
 import Banner from "./components/Banner";
+import Experience from "./components/Experience";
 
 export const metadata = {
   title: "Portfolio Luiz Silveira",
@@ -13,6 +14,7 @@ export default function Home() {
   return (
     <main>
       <Banner />
+      <Experience />
     </main>
   );
 }

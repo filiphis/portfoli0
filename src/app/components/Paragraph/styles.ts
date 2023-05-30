@@ -6,7 +6,7 @@ export const Wrapper = styled.p`
     font-size: 1.6rem;
     line-height: 175%;
     color: ${theme.textColor};
-    text-align: center;
-    margin: 1rem 0;
+    /* text-align: center; */
+    margin-top: 0.8rem;
   `}
 `;
