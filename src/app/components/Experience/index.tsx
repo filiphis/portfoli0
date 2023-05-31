@@ -17,7 +17,7 @@ import tailwindIcon from "/public/images/icons/tailwind-icon.svg";
 export default function Experience() {
   return (
     <S.Wrapper>
-      <Title>Experiências</Title>
+      <Title fontSize="title">Experiências</Title>
       <SubTitle>Tecnologias que tenho trabalhado recentemente:</SubTitle>
       <S.Content>
         <Image src={htmlIcon} alt="Icone do HTML" width={70} />

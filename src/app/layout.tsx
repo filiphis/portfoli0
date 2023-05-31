@@ -7,6 +7,7 @@ import { lightTheme, darkTheme } from "./styles/themes";
 import StyledComponentsRegistry from "./lib/registry";
 
 import { Poppins, Big_Shoulders_Display } from "next/font/google";
+import Footer from "./components/Footer";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -37,7 +38,7 @@ export default function RootLayout({
               <GlobalStyles />
               <Header />
               <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
-              {/* <h1>footer</h1> */}
+              <Footer />
             </div>
           </body>
         </ThemeProvider>
