@@ -13,7 +13,7 @@ export default function ProjectCard() {
           src="https://source.unsplash.com/featured/375x260"
           width={340}
           height={214}
-          // fill
+          priority
           alt="imagem"
         />
       </S.ImageContainer>
@@ -28,10 +28,22 @@ export default function ProjectCard() {
 
         <S.ProjectLinks>
           <Link href="#" target="_blank">
-            <Image src={LinkCardIcon} width={20} height={20} /> Projeto
+            <Image
+              src={LinkCardIcon}
+              width={20}
+              height={20}
+              alt="Ícone do Linkedin"
+            />{" "}
+            Projeto
           </Link>
           <Link href="https://github.com/filiphis" target="_blank">
-            <Image src={githubCardIcon} width={20} height={20} /> Código
+            <Image
+              src={githubCardIcon}
+              width={20}
+              height={20}
+              alt="Ícone do Github"
+            />{" "}
+            Código
           </Link>
         </S.ProjectLinks>
       </S.ContentContainer>

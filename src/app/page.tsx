@@ -1,6 +1,8 @@
 // import { GlobalStyles } from "./styles/global.styles.ts";
 // import styles from "./page.module.css";
-
+"use client";
+import { useEffect } from "react";
+import { getMyRepoList } from "./api/getProjects";
 import Banner from "./components/Banner";
 import Experience from "./components/Experience";
 import Projects from "./components/Projects";
@@ -12,6 +14,13 @@ export const metadata = {
 };
 
 export default function Home() {
+  useEffect(() => {
+    async function getData() {
+      const repos = await getMyRepoList();
+      console.log(repos);
+    }
+    getData();
+  }, []);
   return (
     <main>
       <Banner />
