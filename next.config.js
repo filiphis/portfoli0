@@ -7,7 +7,10 @@ const nextConfig = {
     styledComponents: true,
   },
   images: {
-    remotePatterns: [{ hostname: "source.unsplash.com" }],
+    remotePatterns: [
+      { hostname: "source.unsplash.com" },
+      { hostname: "raw.githubusercontent.com" },
+    ],
   },
 };
 

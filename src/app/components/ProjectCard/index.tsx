@@ -4,39 +4,44 @@ import Title from "../Title";
 import Link from "next/link";
 import githubCardIcon from "/public/images/icons/github-card.svg";
 import LinkCardIcon from "/public/images/icons/link-card.svg";
+import { Project } from "../../api/getProjects";
 
-export default function ProjectCard() {
+export default function ProjectCard({
+  homepage,
+  html_url,
+  image_url,
+  name,
+  owner,
+  title,
+  topics,
+  languages,
+}: Project) {
   return (
     <S.Wrapper>
       <S.ImageContainer>
-        <Image
-          src="https://source.unsplash.com/featured/375x260"
-          width={340}
-          height={214}
-          priority
-          alt="imagem"
-        />
+        <Image src={image_url} width={340} height={214} priority alt="imagem" />
       </S.ImageContainer>
       <S.ContentContainer>
         <Title fontSize="cardTitle" align="left">
-          Titulo do projeto
+          {title}
         </Title>
         <S.Technologies>
-          <S.Tech>HTML</S.Tech>
-          <S.Tech>CSS</S.Tech>
+          {languages.map((lang) => (
+            <S.Tech key={lang}>{lang.toUpperCase()}</S.Tech>
+          ))}
         </S.Technologies>
 
         <S.ProjectLinks>
-          <Link href="#" target="_blank">
+          <Link href={homepage} target="_blank">
             <Image
               src={LinkCardIcon}
               width={20}
               height={20}
-              alt="Ícone do Linkedin"
+              alt="Ícone de uma corrente, representando um link."
             />{" "}
             Projeto
           </Link>
-          <Link href="https://github.com/filiphis" target="_blank">
+          <Link href={html_url} target="_blank">
             <Image
               src={githubCardIcon}
               width={20}

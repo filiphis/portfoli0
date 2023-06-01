@@ -1,7 +1,8 @@
+import { ReactNode } from "react";
 import * as S from "./styles";
 
 export type TitleProps = {
-  children: string;
+  children: ReactNode;
   align?: "left" | "center";
   fontSize: "title" | "subtitle" | "cardTitle";
 };

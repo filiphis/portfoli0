@@ -1,14 +1,16 @@
 import axios from "axios";
 
-type Project = {
+export type Project = {
   name: string;
+  title: string | undefined;
   topics: [];
   homepage: string;
   html_url: string;
   owner: {
     login: string;
   };
-  image_url: string | undefined;
+  image_url: string;
+  languages: string[];
 };
 
 async function listUserRepositories(username: string) {
@@ -61,51 +63,44 @@ async function getReadmeTitle(
   }
 }
 
-async function getImageUrl(
-  owner: string,
-  repo: string
-): Promise<string | undefined> {
+async function getImageUrl(owner: string, repo: string) {
   const path = "design/image.png";
   try {
     const response = await axios.get(
-      `https://api.github.com/repos/${owner}/${repo}/contents/${path}`,
-      {
-        headers: {
-          Accept: "application/vnd.github.v3+json",
-        },
-      }
+      `https://api.github.com/repos/${owner}/${repo}/contents/${path}`
     );
 
-    const fileDetails = response.data;
-
-    // Verifique se o arquivo é uma imagem com base na extensão ou em outros critérios
-    const isImage = /\.(png|jpe?g|gif|svg)$/i.test(fileDetails.name);
-
-    if (isImage) {
-      return fileDetails.download_url;
-    }
-
-    return undefined;
+    return response.data.download_url;
   } catch (error) {
     console.error("Ocorreu um erro ao obter o endereço da imagem:", error);
     throw error;
   }
 }
 
+async function getTechnologies(repository: string) {
+  const path = `https://api.github.com/repos/filiphis/${repository}/languages`;
+
+  const response = await axios.get(path);
+  const data = await response.data;
+
+  return Object.keys(data);
+}
+
 async function formatRepositories(repositories: Project[]) {
   const formattedRepositories: Project[] = [];
 
   for (const repo of repositories) {
-    const formattedRepo = {
+    const formattedRepo: Project = {
       name: repo.name,
       owner: {
         login: repo.owner.login,
       },
-      titulo: await getReadmeTitle(repo.owner.login, repo.name),
+      title: await getReadmeTitle(repo.owner.login, repo.name),
       image_url: await getImageUrl(repo.owner.login, repo.name),
       topics: repo.topics,
       homepage: repo.homepage,
       html_url: repo.html_url,
+      languages: await getTechnologies(repo.name),
     };
 
     formattedRepositories.push(formattedRepo);
