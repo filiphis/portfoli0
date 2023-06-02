@@ -6,12 +6,13 @@ import Banner from "./components/Banner";
 import Experience from "./components/Experience";
 import Projects from "./components/Projects";
 import { Project, myProjects } from "./api/getProjects";
+import { listUserRepositories } from "./api/teste";
 
-export const metadata = {
-  title: "Portfolio Luiz Silveira",
-  description:
-    "Portfolio de um desenvolvedor Front End que utiliza as tecnologias: HTML, CSS, JavaScript, React, TypeScript, NextJS, StoryBook, Styled Component, Tailwind e outras...",
-};
+// export const metadata = {
+//   title: "Portfolio Luiz Silveira",
+//   description:
+//     "Portfolio de um desenvolvedor Front End que utiliza as tecnologias: HTML, CSS, JavaScript, React, TypeScript, NextJS, StoryBook, Styled Component, Tailwind e outras...",
+// };
 
 export default function Home() {
   const [projects, setProjects] = useState<Project[]>([]);
@@ -28,6 +29,12 @@ export default function Home() {
 
       const result = await myProjects(username);
       const teste: Project[] = await result;
+
+      const apiKey =
+        "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";
+      const result2 = await listUserRepositories(username, apiKey);
+
+      console.log("repositories", result2);
 
       setProjects(result);
       console.log(result);

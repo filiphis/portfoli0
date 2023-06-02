@@ -1,4 +1,5 @@
 import axios from "axios";
+const githubApiKey = process.env.NEXT_PUBLIC_GITHUB_API_KEY;
 
 export type Project = {
   name: string;
@@ -15,11 +16,24 @@ export type Project = {
 
 async function listUserRepositories(username: string) {
   try {
-    const response = await axios.get<Project[]>(
-      `https://api.github.com/users/${username}/repos`
+    // const response = await axios.get<Project[]>(
+    //   `https://api.github.com/users/${username}/repos`
+    // );
+
+    const response = await fetch(
+      `https://api.github.com/users/${username}/repos?type=all`,
+      {
+        next: { revalidate: 60 },
+        headers: {
+          Authorization: `Bearer ${githubApiKey}`,
+        },
+      }
     );
 
-    const repositories = response.data;
+    const data = await response.json();
+
+    // const repositories = response.data;
+    const repositories = await data;
 
     return repositories;
   } catch (error) {
@@ -36,16 +50,19 @@ async function getReadmeTitle(
   repo: string
 ): Promise<string | undefined> {
   try {
-    const response = await axios.get(
+    const res = await fetch(
       `https://api.github.com/repos/${owner}/${repo}/readme`,
       {
         headers: {
           Accept: "application/vnd.github.v3+json",
+          Authorization: `Bearer ${githubApiKey}`,
         },
+        next: { revalidate: 60 },
       }
     );
+    const response = await res.json();
 
-    const readmeContent = Buffer.from(response.data.content, "base64").toString(
+    const readmeContent = Buffer.from(response.content, "base64").toString(
       "utf-8"
     );
 
@@ -66,11 +83,19 @@ async function getReadmeTitle(
 async function getImageUrl(owner: string, repo: string) {
   const path = "design/image.png";
   try {
-    const response = await axios.get(
-      `https://api.github.com/repos/${owner}/${repo}/contents/${path}`
+    const res = await fetch(
+      `https://api.github.com/repos/${owner}/${repo}/contents/${path}`,
+      {
+        headers: {
+          Authorization: `Bearer ${githubApiKey}`,
+        },
+        next: { revalidate: 60 },
+      }
     );
 
-    return response.data.download_url;
+    const response = await res.json();
+
+    return response.download_url;
   } catch (error) {
     console.error("Ocorreu um erro ao obter o endereço da imagem:", error);
     throw error;
@@ -80,8 +105,14 @@ async function getImageUrl(owner: string, repo: string) {
 async function getTechnologies(repository: string) {
   const path = `https://api.github.com/repos/filiphis/${repository}/languages`;
 
-  const response = await axios.get(path);
-  const data = await response.data;
+  // const response = await axios.get(path);
+  // const data = await response.data;
+  const response = await fetch(path, {
+    headers: {
+      Authorization: `Bearer ${githubApiKey}`,
+    },
+  });
+  const data = await response.json();
 
   return Object.keys(data);
 }
@@ -110,6 +141,7 @@ async function formatRepositories(repositories: Project[]) {
 }
 
 function filterRepositoriesWithPortfolioTag(repos: Project[]) {
+  console.log("repos", repos);
   const filteredRepositories = repos.filter((repo: Project) => {
     if (
       repo.topics.length > 0 &&
