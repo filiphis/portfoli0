@@ -7,11 +7,11 @@ import Experience from "./components/Experience";
 import Projects from "./components/Projects";
 import { Project, myProjects } from "./api/getProjects";
 
-// export const metadata = {
-//   title: "Portfolio Luiz Silveira",
-//   description:
-//     "Portfolio de um desenvolvedor Front End que utiliza as tecnologias: HTML, CSS, JavaScript, React, TypeScript, NextJS, StoryBook, Styled Component, Tailwind e outras...",
-// };
+export const metadata = {
+  title: "Portfolio Luiz Silveira",
+  description:
+    "Portfolio de um desenvolvedor Front End que utiliza as tecnologias: HTML, CSS, JavaScript, React, TypeScript, NextJS, StoryBook, Styled Component, Tailwind e outras...",
+};
 
 export default function Home() {
   const [projects, setProjects] = useState<Project[]>([]);
