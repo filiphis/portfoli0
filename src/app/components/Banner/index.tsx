@@ -9,7 +9,7 @@ export default function Banner() {
   return (
     <S.Wrapper>
       <S.ImagemContainer>
-        <Image src={minhaFoto} alt="minha foto" fill priority />
+        <Image src={minhaFoto} alt="minha foto" fill priority sizes="500px" />
       </S.ImagemContainer>
 
       <Separator>
@@ -19,15 +19,22 @@ export default function Banner() {
 
       <Separator>
         <Paragraph>
-          2023 is here, and website accessibility widget is not just an option,
-          it should be a business priority that gives your website a real
-          competitive advantage.
+          Atualmente trabalho como analista de suporte na empresa
+          Linx/Setadigital. Trabalho como analista de suporte a quatro anos e
+          pretendo migrar para a area de desenvolvimento.
         </Paragraph>
         <Paragraph>
-          Fact: 71% of people with disabilities will leave an inaccessible
-          website within 10 seconds. With these stats, the decision is clear:
-          your business website can’t afford to lose traffic and potential
-          clients!
+          Possuo conhecimentos em HTML, CSS, Javascript, TypeScript, React,
+          Next, Styled Components, StoryBook e testes.
+        </Paragraph>
+        <Paragraph>
+          Tenho um bom conhecimento pratico com HTML e CSS, consigo desenvolver
+          interfaces utilizando HTML, CSS, Flexbox e Grid tranquilamente.
+        </Paragraph>
+        <Paragraph>
+          Meus conhecimentos em React, Node e TypeScript não são muito
+          avançados, mas consigo desenvolver componentes/interfaces e realizar
+          requisições para api's tranquilamente.
         </Paragraph>
       </Separator>
     </S.Wrapper>

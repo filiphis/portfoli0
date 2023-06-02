@@ -111,7 +111,10 @@ async function formatRepositories(repositories: Project[]) {
 
 function filterRepositoriesWithPortfolioTag(repos: Project[]) {
   const filteredRepositories = repos.filter((repo: Project) => {
-    if (repo.topics.length > 0) {
+    if (
+      repo.topics.length > 0 &&
+      repo.topics.find((item) => item === "portfolio")
+    ) {
       return repo;
     }
   });
