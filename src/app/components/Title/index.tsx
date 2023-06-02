@@ -4,7 +4,7 @@ import * as S from "./styles";
 export type TitleProps = {
   children: ReactNode;
   align?: "left" | "center";
-  fontSize?: "title" | "subtitle" | "cardTitle";
+  fontSize: "title" | "subtitle" | "cardTitle";
 };
 
 export default function Title({

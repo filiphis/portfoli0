@@ -13,8 +13,12 @@ export default function Banner() {
       </S.ImagemContainer>
 
       <Separator>
-        <Title align="center">Prazer em conhece-lo!</Title>
-        <Title align="center">Eu me chamo Luiz.</Title>
+        <Title fontSize="title" align="center">
+          Prazer em conhece-lo!
+        </Title>
+        <Title fontSize="title" align="center">
+          Eu me chamo Luiz.
+        </Title>
       </Separator>
 
       <Separator>
@@ -34,7 +38,7 @@ export default function Banner() {
         <Paragraph>
           Meus conhecimentos em React, Node e TypeScript não são muito
           avançados, mas consigo desenvolver componentes/interfaces e realizar
-          requisições para api's tranquilamente.
+          requisições para APIs tranquilamente.
         </Paragraph>
       </Separator>
     </S.Wrapper>

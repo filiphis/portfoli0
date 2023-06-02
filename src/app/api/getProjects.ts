@@ -113,7 +113,8 @@ function filterRepositoriesWithPortfolioTag(repos: Project[]) {
   const filteredRepositories = repos.filter((repo: Project) => {
     if (
       repo.topics.length > 0 &&
-      repo.topics.find((item) => item === "portfolio")
+      repo.topics.find((item) => item === "portfolio") &&
+      repo.homepage
     ) {
       return repo;
     }
