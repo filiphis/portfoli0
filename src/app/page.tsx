@@ -6,7 +6,6 @@ import Banner from "./components/Banner";
 import Experience from "./components/Experience";
 import Projects from "./components/Projects";
 import { Project, myProjects } from "./api/getProjects";
-import { listUserRepositories } from "./api/teste";
 
 // export const metadata = {
 //   title: "Portfolio Luiz Silveira",
@@ -18,26 +17,11 @@ export default function Home() {
   const [projects, setProjects] = useState<Project[]>([]);
   useEffect(() => {
     async function getData() {
-      // const username = "filiphis";
-      // const repo = "alura-space";
-
-      // const result = await getImageUrl(username, repo);
-      // console.log(result);
-
       const username = "filiphis";
-      const repo = "alura-space";
 
       const result = await myProjects(username);
-      const teste: Project[] = await result;
-
-      const apiKey =
-        "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";
-      const result2 = await listUserRepositories(username, apiKey);
-
-      console.log("repositories", result2);
 
       setProjects(result);
-      console.log(result);
     }
     getData();
   }, []);
