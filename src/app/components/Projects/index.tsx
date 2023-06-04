@@ -3,7 +3,6 @@ import Title from "../Title";
 import ProjectCard from "../ProjectCard";
 import * as S from "./styles";
 import { Project } from "@/app/api/getProjects";
-import { useState } from "react";
 
 type ProjectsProps = {
   projects: Project[];
